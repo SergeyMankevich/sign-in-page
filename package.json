@@ -1,6 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
+  "homepage": "https://sergeymankevich.github.io/sign-in-page",
   "private": true,
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
