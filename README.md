@@ -1,4 +1,4 @@
-# Sign-up page
+# Sign-in page
 
 In the project directory, you can run:
 
