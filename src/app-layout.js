@@ -19,7 +19,6 @@ export const AppLayout = ({ state }) => {
 				<input
 					name="email"
 					type="email"
-					ref={state.loginRef}
 					value={state.login}
 					placeholder="Логин"
 					onChange={(event) => handleLoginChange(state, event)}
@@ -27,7 +26,6 @@ export const AppLayout = ({ state }) => {
 				<input
 					name="password"
 					type="password"
-					ref={state.passwordRef}
 					value={state.password}
 					placeholder="Пароль"
 					onChange={(event) => handlePasswordChange(state, event)}
@@ -36,7 +34,6 @@ export const AppLayout = ({ state }) => {
 				<input
 					name="password"
 					type="password"
-					ref={state.confirmPasswordRef}
 					value={state.confirmPassword}
 					placeholder="Повторите пароль"
 					onChange={(event) => handleConfirmPasswordChange(state, event)}
@@ -44,7 +41,7 @@ export const AppLayout = ({ state }) => {
 				<button
 					ref={state.submitButtonRef}
 					type="submit"
-					disabled={!!state.error}
+					disabled={!!state.error || state.isFormEmpthy}
 				>
 					Зарегистрироваться
 				</button>

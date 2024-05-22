@@ -1,12 +1,5 @@
 export const handleConfirmPasswordChange = (
-	{
-		password,
-		setConfirmPassword,
-		setConfirmPasswordError,
-		submitButtonRef,
-		passwordRef,
-		loginRef,
-	},
+	{ password, setConfirmPassword, setConfirmPasswordError },
 	{ target },
 ) => {
 	setConfirmPassword(target.value);
@@ -15,9 +8,6 @@ export const handleConfirmPasswordChange = (
 
 	if (target.value !== password) {
 		newError = 'Пароли не совпадают';
-	} else if (loginRef.current.value && passwordRef.current.value) {
-		submitButtonRef.current.focus();
 	}
-
 	setConfirmPasswordError(newError);
 };

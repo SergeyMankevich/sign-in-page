@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AppLayout } from './app-layout';
 
 export const App = () => {
@@ -12,10 +12,14 @@ export const App = () => {
 
 	const error = loginError || passwordError || confirmPasswordError;
 
+	let isFormEmpthy = login === '' || password === '' || confirmPassword === '';
 	const submitButtonRef = useRef(null);
-	const loginRef = useRef(null);
-	const passwordRef = useRef(null);
-	const confirmPasswordRef = useRef(null);
+
+	useEffect(() => {
+		if (!error) {
+			submitButtonRef.current.focus();
+		}
+	}, [error]);
 
 	const state = {
 		login,
@@ -28,10 +32,8 @@ export const App = () => {
 		setPasswordError,
 		setConfirmPasswordError,
 		submitButtonRef,
-		loginRef,
-		passwordRef,
-		confirmPasswordRef,
 		error,
+		isFormEmpthy,
 	};
 
 	return <AppLayout state={state} />;

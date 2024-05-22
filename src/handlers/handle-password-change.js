@@ -1,14 +1,4 @@
-export const handlePasswordChange = (
-	{
-		setPassword,
-		setPasswordError,
-		submitButtonRef,
-		loginRef,
-		confirmPasswordRef,
-		confirmPassword,
-	},
-	{ target },
-) => {
+export const handlePasswordChange = ({ setPassword, setPasswordError }, { target }) => {
 	setPassword(target.value);
 
 	let newError = null;
@@ -16,14 +6,8 @@ export const handlePasswordChange = (
 	if (!/^[\w_]*$/.test(target.value)) {
 		newError =
 			'Неверный пароль. Допустимые символы: буквы, цифры и нижнее подчёркивание';
-	} else if (target.value.length > 10) {
-		newError = 'Неверный пароль. Должно быть не больше 10 символов';
-	} else if (
-		target.value === confirmPassword &&
-		loginRef.current.value &&
-		confirmPasswordRef.current.value
-	) {
-		submitButtonRef.current.focus();
+	} else if (target.value.length > 14) {
+		newError = 'Неверный пароль. Должно быть не больше 14 символов';
 	}
 
 	setPasswordError(newError);
